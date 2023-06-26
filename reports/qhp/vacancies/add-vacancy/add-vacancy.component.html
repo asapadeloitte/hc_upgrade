@@ -1,0 +1,87 @@
+<form [formGroup]="addVacancyForm">
+
+    <div class="modal-content ngDraggable" id="addVacancy" #addVacancy >
+        <div class="modal-header">
+            <div class="row">
+                <div class="col-12 marginTopHeader">
+                    <span>Add a New Vacancy</span>
+                </div>
+            </div>
+            <button type="button" id="closeIcon" class="close" data-dismiss="modal" aria-label="Close"
+                (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <hr>
+
+        <div class="modal-body">
+            <!-- // office -->
+            <div class="form-group">
+                <label for="office"><b>Office</b></label>
+                <input type="text" class="form-control" name="office" formControlName="office" disabled="true"
+                    id="office" placeholder="{{office}}" value="{{office}}">
+            </div>
+            <!-- Year -->
+            <!-- (change)="onYearChangeEvent($event)" -->
+            <div class="form-group">
+                <label id="lblyear" for="yearType"><b>Fiscal Year</b></label>
+                <ng-select id="yearType" class="dropdownInput" formControlName="year" [searchable]="false"
+                    placeholder="Select Year" [items]="yearsList" bindLabel="yearValue" bindValue="yearType"
+                    aria-label="year" aria-describedby="lblyear">
+                    <ng-template ng-option-tmp let-item="item">
+                        <div title="{{item}}">
+                            {{item}}</div>
+                    </ng-template>
+                </ng-select>
+            </div>
+
+            <!-- // quarter -->
+            <!-- (change)="onQuarterSelection($event)" -->
+
+            <div class="form-group">
+                <label id="quarter" for="quarter"><b>Quarter</b></label>
+                <ng-select id="quarter" class="dropdownInput" formControlName="quarter" [searchable]="false"
+                    placeholder="Select Quarter" [items]="quarters" bindLabel="label" aria-label="quarter"
+                    aria-describedby="quarter">
+                    <option value="null" disabled selected hidden>Select an option</option>
+                    <option *ngFor="let quarter of quarters">
+                        {{ quarter}}
+                    </option>
+                </ng-select>
+            </div>
+            <div class="form-group">
+                <label id="vacancyGrade1" for="vacancyGrade"><b>Grade</b></label>
+                <ng-select id="vacancyGrade" class="dropdownInput" formControlName="grade" [searchable]="false"
+                    placeholder="Select Grade" [items]="grade" bindLabel="value">
+                    <ng-template ng-option-tmp let-item="item">
+                        <div title="{{item}}">
+                            {{item.value}}</div>
+                    </ng-template>
+                </ng-select>
+            </div>
+
+            <!-- No of Vacancies -->
+            <div class="form-group">
+                <label for="noOfVacancies"><b>No of Vacancies</b></label>
+                <input type="number" class="form-control" id="noOfVacancies" formControlName="noOfVacancies"
+                    placeholder="No of Vacancies">
+            </div>
+            <!-- Comments -->
+            <div class="form-group">
+                <label for="comments"><b>Comments</b></label>
+                <input type="textarea" class="form-control" formControlName="comments" id="comments"
+                    placeholder="Comments">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" id="btn-save" data-dismiss="modal" class="btn btn-primary" [ngBusy]="busyTableSave"
+                    (click)="AddVacancy($event)" [disabled]="!addVacancyForm.valid || disabledSubmit">
+                    <i class="fa fa-send"> Submit </i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+</form>

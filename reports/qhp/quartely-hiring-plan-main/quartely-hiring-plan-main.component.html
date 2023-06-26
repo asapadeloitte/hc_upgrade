@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-12">
+        <app-quarterly-hiring-plan (onCellValueUpdated)="onCellValueUpdated($event)"></app-quarterly-hiring-plan>
+    </div>
+</div>
+<form [formGroup]="qHPStaffingPlanVacancySearchForm">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label id="lblOffice" for="office"><b>Office</b></label>
+                        <ng-select id="office" class="dropdownInput" formControlName="office" [searchable]=false
+                            placeholder="Select Office" [items]="officeList" bindLabel="office" autofocus
+                            bindValue="office" (change)="onOfficeChangeEvent($event)" aria-label="office"
+                            aria-describedby="lblOffice">
+                            <ng-template ng-option-tmp let-item="item">
+                                <div title="{{item.office}}">
+                                    {{item.office}}</div>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="col-1 align-self-center">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary button-acc"
+                            [disabled]="!qHPStaffingPlanVacancySearchForm.valid" (click)="onGoClick()" title="Go"> <span
+                                class="label-sr-only d-none">Go</span>
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-1 align-self-center" *ngIf="roleList === 'IT_Admin'">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary button-acc"
+                        title="Grid Export"  (click)="exportAsXLSX()"> <span
+                                class="label-sr-only d-none">Export</span>
+                            <i class="fa fa-download fa-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="showbottomGridData">
+        <div class="col-6">
+            <app-onboards-from-staffing-plan-qhp [office]="officeName"></app-onboards-from-staffing-plan-qhp>
+        </div>
+        <div class="col-6">
+            <app-vacancies [office]="officeName" [yearsList]="yearsList"
+                (onCellValueUpdated)="onCellValueUpdated($event)"></app-vacancies>
+        </div>
+    </div>
+</form>
