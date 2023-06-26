@@ -1,0 +1,970 @@
+@import "../../ag-grid-cbas-theme.scss";
+
+.successColor {
+  color: $green;
+}
+
+.successHeaderFont {
+  font-size: 1rem !important;
+}
+.modalFooterFontSize {
+  font-size: 0.8rem !important;
+}
+
+.rejectColor {
+  color: $red;
+}
+
+.rejectHeaderFont {
+  font-size: 1rem !important;
+}
+
+.primary-color{
+  color: $sky-blue;
+}
+
+.btnDangerGrid{
+  color: $red !important;
+  background: white !important;
+  border: 2px solid $red;
+  font-size: 0.7rem;
+}
+
+.row-action-buttons {
+  margin-top: 3px;
+}
+
+s::ng-deep .customClass > a {
+  background-color: silver !important;
+  border-bottom: none !important;
+  outline: 0 !important;
+}
+
+// date picker styles - start
+input[type="date"] {
+  position: relative;
+  padding-right: 0px;
+  &::after {
+    display: none;
+  }
+}
+
+.ag-theme-balham .ag-popup-editor{
+  height: 18rem;
+  overflow: auto;
+  width: 13.8rem !important;
+  // margin-left: 16px;
+}
+app-dropdown-smartlist{
+  input{
+    &.dropdownGrid{
+      height: 2rem;
+      width: 12.6rem;
+      border-radius: 5%;
+      padding: 10px;
+      border: 1px solid;
+      position: sticky;
+    }
+  }
+  ul {
+    list-style-type: none;
+    margin-left: -40px;
+  }
+  li{
+    padding: 10px;
+    background-color: white;
+    &:hover{
+      background-color: #007CBA;
+      color: white;
+    }
+  }
+}
+
+
+option:hover {
+  background-color: #007cba !important; 
+} 
+
+
+.button-acc {
+  margin-top: 1.8rem;
+}
+
+.ng-select .ng-clear-wrapper {
+  color: black !important;
+}
+
+.label-sr-only {
+  visibility: hidden;
+}
+    
+
+.browseButton {
+   color: white;
+    width: 183px;
+    height: 44px;
+    border-radius: 21.5px;
+    background-color: #007cba !important;
+    padding: 8px 16px;
+    line-height: 22px;
+}
+.textBlue{
+  color: $sky-blue;
+}
+
+
+
+
+.datePickerGrid{
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+  text-align: center;
+  width:200px;
+  &.dateColor {
+      color: #C70032;
+  }
+  &:focus{
+    border: none;
+  }
+  &:active{
+    border: none;
+  }
+}
+
+.datePickerDisplay{
+  display: inline-block;
+} 
+
+/* create a new arrow, because we are going to mess up the native one
+see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+input[type="date"]:after {
+  font-family: FontAwesome;
+  font-weight: 900;
+  content: "\f073";
+  color: #555;
+  padding: 5px 10px;
+  background-color: #007cba;
+  color: white;
+  border-radius: 0 0 0.3em;
+  cursor: pointer;
+}
+
+/* change color of symbol on hover */
+// input[type="date"]:hover:after {
+//   color: #bf1400;
+// }
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+
+/* adjust increase/decrease button */
+input[type="date"]::-webkit-inner-spin-button {
+  z-index: 1;
+}
+
+/* adjust clear button */
+input[type="date"]::-webkit-clear-button {
+  z-index: 1;
+}
+
+// date picker styles - end
+:host ::ng-deep ngx-file-drop .ngx-file-drop__drop-zone {
+  height: 200px;
+}
+:host ::ng-deep ngx-file-drop .ngx-file-drop__content {
+  height: 200px;
+}
+
+:host ::ng-deep ngx-file-drop .ngx-file-drop__drop-zone {
+  border: 2px dashed #007cba;
+}
+
+//new
+::ng-deep .nav-tabs .nav-link.active {
+  color: #007cba !important;
+  border-color: white white #007cba white;
+}
+
+::ng-deep .nav-tabs .nav-link {
+  color: black !important;
+  margin-right: 80px;
+}
+
+a {
+  color: #4a4a4a;
+}
+
+/*.custom {
+  border: 0.8px solid #4A4A4A !important;
+  transition: none;
+  form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  
+}*/
+
+.form-control.ng-select {
+  padding: 0;
+  border: none;
+}
+/*.cardsectional {
+  height:30px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+ // background-color: gray
+ 
+  
+}*/
+.sectioncolor {
+  height: 35px;
+  padding-left: 10px;
+  align-items: center;
+  background-color: #222c67;
+  color: white;
+  padding-top: 8px;
+}
+.textareaheight {
+  height: 400px;
+}
+.savecolor {
+  background-color: #007bff;
+}
+
+// Tabs
+
+tabset .nav-tabs .nav-link.active {
+  border-bottom: 2px solid $sky-blue !important;
+}
+
+tabset {
+  .nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+    .nav-link.active {
+      color: $sky-blue !important;
+      border-bottom: 2px solid $sky-blue;
+      border-right: transparent;
+      border-left: transparent;
+      border-top: transparent;
+      &:hover {
+        border-bottom: 2px solid $sky-blue;
+      }
+    }
+    .nav-link {
+      font-weight: 700;
+      display: block;
+
+      &:hover {
+        border-color: transparent;
+        background: #222C67;
+        color: white;
+      }
+    }
+    .nav-item {
+       margin-bottom: -1px;
+       width:350px
+    }
+  }
+  & ul {
+    margin-top: 1.5rem;
+  }
+  .tab-content {
+    margin-top: 2rem;
+  }
+}
+
+.navbar {
+  background-color: $sky-blue !important;
+  color: white;
+  .navbar-brand {
+    background: url(#{$img-path}fda-logo-reverse-213x45.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 3.375rem;
+    width: 13rem;
+    margin-left: 2rem;
+    margin-top: 18px;
+    margin-bottom: 8px;
+   }
+}
+
+.info-circle {
+  color: $sky-blue;
+  background: url(#{$img-path}info-icon.svg);
+  background-repeat: no-repeat;
+  height: 0.8rem;
+  width: 0.9rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.avInfo-circle{
+    //background: url(/assets/images/info-icon.svg);
+    background-repeat: no-repeat;
+    width: 0.7rem;
+    cursor: pointer;
+    padding: 0px 12px 0px 2px;
+}
+
+
+.tooltip{
+    // visibility: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+    transform: translate(63px, 129px);
+    // opacity: 1 !important;
+
+    .tooltip-inner {
+      max-width: 230px;
+      padding: .25rem .5rem;
+      color: #C70032;
+      text-align: center;
+      background-color: #FFE4B9;
+      border-radius: .25rem;
+      border: 1px solid #C70032;
+    }
+}
+
+.gridTextareaClass {
+  height: 17.4rem;
+  width: 219px;
+  white-space: pre-wrap;
+  overflow: auto;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.gridTextBox {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.ag-cell .ag-icon{
+  color:black !important;
+}
+
+.ag-theme-balham .ag-column-drop-vertical-icon {
+  color:black !important;
+}
+.ag-theme-balham .ag-column-drop-cell-button {
+  color: black !important;
+}
+
+
+.infoIncon{
+  background-color: #FDE0E0 !important;
+  width: auto;
+  height: 38px;
+  margin-left: -12px;
+  margin-right: -12px;
+  padding: 0px 11px;
+  line-height: 34px;
+}
+
+.validationColor{
+  background-color: #FDE0E0 !important;
+  //width: 200px;
+  height: 37px;
+  margin-left: -12px;
+  margin-right: -6px;
+  padding: 0px 11px;
+  line-height: 34px;
+}
+
+.text-red{
+  color: #C70032 !important;
+}
+
+.textRight{
+  float: right;
+}
+
+.textLeft{
+  float: left;
+}
+
+.ag-theme-balham {
+  .ag-header-cell {
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      display: block;
+      height: 50%;
+      top: calc(50% - 25%);
+      background-color: white !important;
+    }
+  }
+
+  .ag-header-cell-label{
+    .ag-header-cell-text {
+      white-space: pre-wrap;
+    }
+  }
+}
+// added for removing the numbers on column multisort
+.ag-header-cell-label .ag-header-icon.ag-sort-order {
+  display: none
+}
+.ag-theme-balham .ag-header-cell:last-child {
+    border-right: none;
+}
+
+.ag-theme-balham .ag-tab-selected {
+  color:black;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #e9ecef !important;
+  opacity: 1;
+}
+
+.calender {
+  color: white;
+}
+
+.calender-span {
+  background-color: $sky-blue;
+}
+
+.ag-checkbox-input-wrapper::after{
+   color:black !important;
+}
+
+app-cell-history-dialog {
+  width: 50rem;
+  margin-left: -9rem;
+}
+
+.dropdownInput {
+  height: 38px;
+  border: 0.7px solid #495057;
+  border-radius: 4px;
+
+  .ng-placeholder {
+    color: #495057 !important;
+    font-size: 1rem;
+  }
+  &:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+ .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked {
+  background-color: white ;
+  color: rgba(0,0,0,0.87);
+  font-weight: 300 !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label {
+  font-weight: 300 !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked{
+  background-color:#007CBA;
+  color: white;
+}
+
+.ng-dropdown-panel {
+  &.ng-select-bottom {
+    font-size: 1rem;
+    .ng-dropdown-panel-items {
+      .ng-option {
+        &.ng-option-selected {
+          &.ng-option-marked {
+            background-color:#007CBA;
+            color: white;
+          }
+        }
+        &.ng-option-marked {
+          background-color:#007CBA;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.ng-placeholder {
+  color: #535046 !important; 
+}
+
+.ng-select {
+  .ng-select-container {
+    color: #333;
+    border-radius: 4px;
+    min-height: 36px;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+  }
+  &.ng-select-opened > .ng-select-container .ng-arrow {
+    top: -2px;
+    border-color: transparent transparent #000000;
+    border-width: 0 5px 5px;
+  }
+  .ng-arrow-wrapper {
+    .ng-arrow {
+      border-color: #000000 transparent transparent;
+      border-style: solid;
+      border-width: 5px 5px 2.5px;
+    }
+  }
+}
+
+.ctpLineItemColor {
+  color: #222c67;
+}
+
+.ng-select div,
+.ng-select input,
+.ng-select span {
+  font-size: 1rem;
+}
+
+.modal-content {
+  background-color: transparent;
+  border: none;
+  border-radius: none;
+}
+
+.ngDraggable {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff !important;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+hr {
+  display: block;
+  border: 0;
+  border-top: 1px solid #000;
+  margin: 0px 1rem 0rem;
+  width: 93%;
+  padding: 0px;
+}
+
+// label {
+//   font-weight: bold;
+// }
+
+.modal {
+  .modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: none;
+    color: $sky-blue;
+    padding: 1rem 1rem;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+
+    span {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .marginTopHeader {
+      margin: 6px 0px -9px 0px;
+    }
+    .close {
+      padding: 1rem 1rem;
+      margin: -2rem -1rem -1rem auto;
+    }
+  }
+  .modal-body {
+    .ngx-file-drop__drop-zone {
+      height: auto;
+      padding: 1rem;
+    }
+  }
+  .modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.75;
+    background: #e2e4e4;
+    border-top: none;
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - 1px);
+    margin-right: -16px;
+    margin-left: -16px;
+    margin-bottom: -16px;
+    margin-top: 16px;
+
+    .deleteButton {
+      border: 2px solid #D60036;
+      background: white;
+      color: #D60036;
+      margin-right: 368px;
+      &:hover{
+          border-color: #D60036 !important;
+          box-shadow: 0 0 0 0.2rem rgba(199, 17, 17, 0.5) !important;
+      }
+    }
+    .deleteButtons {
+      border: 2px solid #D60036;
+      background: white;
+      color: #D60036;
+      &:hover{
+        border-color: #D60036 !important;
+        box-shadow: 0 0 0 0.2rem rgba(199, 17, 17, 0.5) !important;
+    }
+    }
+    .editButton {
+      border: 2px solid rgb(172, 88, 10);
+      background: white;
+      color: rgb(172, 88, 10);
+      margin-right: 6.4rem;
+    }
+  }
+}
+.advanceSearch {
+  color: #003F9E;
+  text-decoration: none !important;
+  border-bottom: 1px solid;
+  span {
+    border-bottom: 1px solid;
+  }
+  &:hover {
+    color: #222C67;
+  }
+}
+.btn-primary {
+  &:disabled {
+    color: #fff;
+    background-color: #929394 !important;
+    border-color: transparent;
+  }
+  &:focus {
+      border : none !important;
+      box-shadow: none !important;
+  }
+  &:hover {
+      border-color: #0062cc !important;
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5) !important;
+  }
+}
+.marginForValidationMsg {
+  margin-left: 1.9rem;
+}
+
+.bglightBlue {
+  background-color: lightblue;
+}
+
+.bgTransparent {
+  background-color: transparent;
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid {
+  background-position: right calc(1.3em + 0.1875rem) center;
+}
+
+.caret {
+  color: #4A4A4A;
+  display: inline-block;
+  width: 0;
+  height: auto;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 6px dashed !important;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent !important;
+  border-left: 4px solid transparent !important;
+}
+
+select {
+  background-image: 
+    linear-gradient(45deg, transparent 50%, black 60%),
+    linear-gradient(135deg, black 40%, transparent 50%) !important;
+  background-position: calc(100% - 15px) 15px, calc(100% - 10px) 15px, 100% 0;
+  background-size: 4px 5px, 5px 6px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.ag-side-button-label {
+  -webkit-writing-mode: vertical-lr;
+  writing-mode: bt-rl;
+}
+
+// .ag-theme-balham .ag-filter-toolpanel-header, .ag-theme-balham .ag-filter-toolpanel-search, .ag-theme-balham .ag-status-bar, .ag-theme-balham .ag-header-row {
+//   color: black !important;
+// }
+.ag-theme-balham .ag-group-title-bar-icon{
+  color: black !important;
+}
+.ag-filter-toolpanel-group-title {
+  color: black !important;
+}
+
+.ag-theme-balham button.ag-side-button-button {
+  font-family: inherit;
+  line-height: inherit;
+  background: transparent;
+  padding: 8px 0 8px 0;
+  width: calc(100% + 1px);
+  margin: 0;
+  min-height: 199px;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-top: none;
+  border-bottom: none;
+  color: black;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.btnSecondary{
+  color: #007CBA !important;
+  background: white !important;
+  border: 2px solid #007CBA;
+  font-size: 1rem;
+  &:focus {
+    box-shadow: none !important;
+  }
+  &:hover {
+      border-color: #0062cc !important;
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5) !important;
+  }
+}
+
+.btnWarning{
+  color: rgb(186, 127, 0) !important;
+  background: white !important;
+  border: 2px solid rgb(186, 127, 0);
+  font-size: 1rem;
+  &:focus {
+    box-shadow: none !important;
+  }
+  &:hover {
+      border-color: #0062cc !important;
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5) !important;
+  }
+}
+
+.btnSecondaryGrid{
+  color: #007CBA !important;
+  background: white !important;
+  border: 2px solid #007CBA;
+  font-size: 0.7rem;
+}
+
+.btnprimaryGrid{
+  color: white !important;
+  background: #007CBA !important;
+  font-size: 0.7rem;
+}
+
+.btnDanger{
+  color: $red !important;
+  background: white !important;
+  border: 2px solid $red;
+  font-size: 1rem;
+  &:hover{
+    border-color: $red !important;
+    box-shadow: 0 0 0 0.2rem rgba(199, 17, 17, 0.5) !important;
+}
+}
+.alertFontSize {
+  font-size: 0.9rem;
+}
+
+.saveButtonFont{
+  font-size: 0.9rem;
+}
+
+tabset {
+  .nav-tabs 
+    .nav-link {
+      background-color: white;
+      color: #007CBA;
+      border: 1px solid #007CBA;
+      border-radius: 0%;
+      min-width: 185px;
+      min-height: 82px;
+      text-align: center;
+      &.active {
+        color: white!important;
+        border-bottom: 4px solid #007CBA;
+        border-right: transparent;
+        border-left: transparent;
+        border-top: transparent;
+        background: #007CBA !important;
+        border-radius: 0px;
+        &::after{
+            content: "";
+            position: absolute;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: #007cba transparent;
+            display: block;
+            width: 0;
+            margin-left: 3rem;
+            margin-top: 6px;
+        }
+      }
+    }
+    
+} 
+.ag-theme-balham .ag-drag-handle{
+  color:black;
+}
+.circle:before {
+  content: ' \25CF';
+  font-size: 200px;
+}
+
+//Date Picker
+.cdk-overlay-container {
+  z-index: 1060 !important;
+}
+
+.notesActionWidth{
+  width: 13rem;
+}
+
+.close-icon {
+	background-color: transparent;
+	display: inline-block;
+	vertical-align: middle;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+  border: none;
+}
+.close-icon:after {
+  content: "X";
+  display: block;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 2px;
+  border-radius: 50%;
+  text-align: center;
+  color: black;
+  font-weight: normal;
+  font-size: 12px;
+  cursor: pointer;
+  line-height: 31px;
+}
+.search-box:not(:valid) ~ .close-icon {
+	display: none;
+}
+
+.required {
+  font-weight: bold;
+  color: #C70032;
+  margin-left: 0;
+  // font-size: 1.2em;
+  position: relative;
+  // top: 4px;
+}
+
+.ag-theme-balham input[class^='ag-'][type='text'] {
+  color: #000 !important;
+}
+
+
+// backdrop 
+
+.ng-busy,
+.ng-busy > *,
+.ng-busy > ng-component > * {
+  position: fixed !important;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.ng-busy-backdrop {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  background: #fff;
+  opacity: 0.7;
+}
+
+.ng-busy-default-sign {
+  margin-top: 28%;
+}
+  
+
+// // ag-grid cell selection color
+.ag-theme-balham .ag-row-selected {
+  background-color: #ccf3ff;
+}
+
+.ag-theme-balham .ag-row {
+  border-color: gray;
+}
+
+.ag-center-cols-clipper .ag-center-cols-viewport .ag-center-cols-container .ag-row-selected .ag-cell{
+  background-color: transparent !important;
+}
+
+.page-item.active .page-link{
+  background-color: #007CBA;
+}
+
+.page-link{
+  color: #007CBA;
+}
+
+.ng-select.ng-select-disabled>.ng-select-container{
+  background-color: #e9ecef ;
+}
