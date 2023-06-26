@@ -1,0 +1,166 @@
+<form [formGroup]="hiringMechTopForm" [ngBusy]="busyTableSave">
+
+    <div class="row" [ngBusy]="busyTableSave">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body" *ngIf="hiringMechTopForm">
+                    <h1 class="card-title">Hiring Mechanisms</h1>
+                    <div class="row">
+                    </div>
+                    <div class="row mt-3" [ngBusy]="busyTableSave">
+                        <div class="col-2">
+                            <div class="form-group office-drpdwn-panel">
+                                <label id="lblOffice" for="office"><b>Office</b></label>
+                                <ng-select id="office" class="dropdownInput" formControlName="office" [searchable]=false
+                                    placeholder="Select Office" [items]="officeList" bindLabel="office" autofocus
+                                    bindValue="office"  aria-label="office"
+                                    aria-describedby="lblOffice">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item.office}}">
+                                            {{item.office}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label id="lblyear" for="yearType"><b>Year</b></label>
+                                <ng-select id="yearType" class="dropdownInput" formControlName="year"
+                                    [searchable]="false" placeholder="Select Year" [items]="yearsList"
+                                    bindLabel="yearValue" bindValue="yearType" (change)="onYearChangeEvent($event)"
+                                    aria-label="year" aria-describedby="lblyear">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item}}">
+                                            {{item}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label id="lblHiringMech" for="hiringMechType"><b>Hiring Mechanism</b></label>
+                                <ng-select id="hiringMechType" class="dropdownInput" formControlName="hiringMechanism"
+                                    [searchable]="false" placeholder="Select Hiring Mechanism " [items]="hiringMechList"
+                                    bindLabel="value" bindValue="value" (change)="onHmChangeEvent($event)"
+                                    aria-label="hiringMechanism" aria-describedby="lblHiringMech">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item.value}}">
+                                            {{item.value}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+
+                        <div class="col-1 align-self-center">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary button-acc"
+                                    [disabled]="!hiringMechTopForm.valid" (click)="onGoClickHiringMechanism()"
+                                    title="Go"> <span class="label-sr-only d-none">Go</span>
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="showSearch">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-3" *ngIf="showSearch">
+                            <div class="form-group">
+                                <label for="search"><b>Search</b></label>
+                                <input id="search" type="text" formControlName="search" placeholder="Search"
+                                    class="form-control " (keyup)="onFilterTextBoxChanged()">
+                            </div>
+                        </div>
+                        <div class="col-2" *ngIf="showSearch">
+                            <div class="form-group">
+                                <label id="lblfilter" for="filter"><b>My Views</b></label>
+                                <ng-select id="filter" class="dropdownInput" formControlName="filter"
+                                    [searchable]="false" placeholder="Select Default View" [items]="customFilterNames"
+                                    bindLabel="filterName" bindValue="filterName"
+                                    (ngModelChange)="onFilterChangeEvent($event)" aria-label="filter"
+                                    aria-describedby="lblfilter">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{ item.filterName }}">
+                                            {{ item.filterName }}
+                                        </div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-1 align-self-center" *ngIf="showSearch">
+                            <div class="form-group">
+                                <button
+                                    title="{{hiringMechTopForm.get('filter').value === null ? 'Save View' : 'Delete/Rename View'}}"
+                                    class="btn btnSecondary button-acc" type="button" (click)="openFilterDialog()">
+                                    <span class="label-sr-only d-none">Save</span>
+                                    <i *ngIf="hiringMechTopForm.get('filter').value === null"
+                                        class="fa fa-save fa-lg"></i>
+                                    <i *ngIf="hiringMechTopForm.get('filter').value !== null"
+                                        class="fa fa-edit fa-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-6 mt-3" *ngIf="showSearch">
+                            <div><button class="btn btn-primary pull-right ml-4" type="button"
+                                    (click)="saveAnnouncements()" [disabled]="disableSave" title="Save Grid">
+                                    <span class="label-sr-only d-none">Save</span>
+                                    <i class="fa fa-save fa-lg"></i>
+                                </button>
+                            </div>
+                            <div><button class="btn btnSecondary pull-right ml-4" type="button"
+                                    (click)="resetFilterView()" title="Reset">
+                                    <span class="label-sr-only d-none">Reset</span>
+                                    <i class="fa fa-refresh fa-lg"></i>
+
+                                </button>
+                            </div>
+                            <div><button class="btn btnSecondary pull-right ml-4" type="button"
+                                    (click)="autoSizeCols(false)" title="Auto Fit">
+                                    <span class="label-sr-only d-none">Auto-Fit</span>
+                                    <i class="fa fa-arrows-h fa-lg"></i>
+                                </button>
+                            </div>
+                            <div><button class="btn btnSecondary pull-right ml-4" type="button" data-toggle="modal"
+                                    title="Grid Export" (click)="openExportModal()">
+                                    <span class="label-sr-only d-none">Grid Export</span>
+                                    <i class="fa fa-download fa-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="widget h-divider autooverflow" widget>
+                        <div class="row">
+                            <div class="col-12">
+                                <ag-grid-angular style="width: 100%; height: 450px;" class="ag-theme-balham"
+                                    [gridOptions]="gridOptions" [rowData]="announcementList"
+                                    [getContextMenuItems]="getContextMenuItems" (sortChanged)="onSortChange($event)"
+                                    [excelStyles]="excelStyles" [quickFilterText]="hiringMechTopForm.value.search"
+                                    [columnDefs]="colDefs" [suppressRowClickSelection]="true" rowSelection='multiple'
+                                    [floatingFilter]="false" [rowHeight]="rowHeight" [sideBar]="sideBar" [multiSortKey]="multiSortKey"
+                                    (gridReady)="onGridReady($event)" [statusBar]="statusBar" [suppressMenuHide]="true"
+                                    [frameworkComponents]="frameworkComponents">
+                                </ag-grid-angular>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<app-delete-user-popup *ngIf="editedData.length === 0 && deleteClicked" [deleteObj]="deleteObj"
+    screenName="hiringMechanism" (reloadAnnouncments)="reloadAnnouncments($event)"
+    (resetDeleteClicked)="resetDeleteClicked($event)" (announcementDeleted)="announcementDeleted($event)">
+</app-delete-user-popup>
