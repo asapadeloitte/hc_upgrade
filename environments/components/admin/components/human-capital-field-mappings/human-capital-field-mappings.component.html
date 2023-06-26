@@ -1,0 +1,76 @@
+<form [formGroup]="changeForm">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- *ngIf="isDataPresent" -->
+                    <div class="row align-items-center">
+                        <!-- *ngIf="showSearch" -->
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label id="lblSearch" for="search"><b>Search</b></label>
+                                <input type="text" placeholder="Search" aria-labelledby="lblSearch"
+                                    formControlName="search" class="form-control" (keyup)="onFilterTextBoxChanged()">
+                            </div>
+                        </div>
+                        <!-- *ngIf="showSearch" -->
+                        <div class="col-9 mt-3">
+                            <div><button class="btn btn-primary pull-right ml-4" type="button"
+                                    (click)="updateFieldMappingsData()" title="Save Grid">
+                                    <span class="label-sr-only d-none">Save</span>
+                                    <i class="fa fa-save fa-lg"></i>
+                                </button>
+                            </div>
+                            <div><button class="btn btnSecondary pull-right ml-4" type="button" (click)="resetFilterView()"
+                                    title="Reset">
+                                    <i class="fa fa-refresh fa-lg"></i>
+                                    <span class="label-sr-only d-none">Refresh</span>
+                                </button>
+                            </div>
+                            <div><button class="btn btnSecondary pull-right ml-4" type="button"
+                                    (click)="autoSizeCols(false)" title="Auto Fit">
+                                    <i class="fa fa-arrows-h fa-lg"></i>
+                                    <span class="label-sr-only d-none">Auto Fit</span>
+                                </button>
+                            </div>
+                            <div><button class="btn btnSecondary pull-right ml-4" type="button" data-toggle="modal"
+                                    title="Grid Export" (click)="openExportModal()">
+                                    <i class="fa fa-download fa-lg"></i>
+                                    <span class="label-sr-only d-none">Grid Export</span>
+                                </button>
+                            </div>
+                            <div>
+									<button id="btn-cr-user" type="button" class="btn btnSecondary pull-right ml-4" data-toggle="modal"
+										data-keyboard="false" data-backdrop="static" (click)="openFileUploadDialog()"
+										title="Add Mapping">
+										<i class="fa fa-plus"></i>
+										Add  Mapping
+									</button>
+							</div>
+                        </div>
+                    </div>
+
+                    <!-- table -->
+
+                    <section class="widget h-divider autooverflow" widget>
+                        <div class="row" [ngBusy]="busyTableSave">
+                            <div class="col-12">
+                                <ag-grid-angular style="width: 100%; height: 450px;" class="ag-theme-balham"
+                                    [gridOptions]="gridOptions" (gridReady)="onGridReady($event)"
+                                    [rowData]="fieldMappingsData" [columnDefs]="colDefs" [suppressMenuHide]="true"
+                                    [allowContextMenuWithControlKey]="true" [suppressRowClickSelection]="true"
+                                     rowSelection='multiple' [excelStyles] = "excelStyles"
+                                    [statusBar]="statusBar" [rowHeight]="rowHeight" [floatingFilter]="false"
+                                    [sideBar]="sideBar" [frameworkComponents]="frameworkComponents">
+                                </ag-grid-angular>
+                                <!-- [getContextMenuItems]="getContextMenuItems" -->
+                            </div>
+                        </div>
+                    </section>
+                   </div>
+            </div>
+        </div>
+    </div>
+    <app-delete-user-popup [userId]="id"  screenName ="fieldMapping" (reloadUsers)="reloadUsers($event)" (userDeleted)="userDeleted($event)">
+    </app-delete-user-popup>
+</form>

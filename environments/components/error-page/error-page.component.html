@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title" [innerHTML]="this.route.snapshot.data['page_header']"></h1>
+        <small [innerHTML]="this.route.snapshot.data['errors']"></small>
+      </div>
+    </div>
+  </div>
+</div>

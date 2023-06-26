@@ -1,0 +1,77 @@
+<div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content ngDraggable">
+			<div class="modal-header">
+				<div class="row">
+					<div class="col-12 marginTopHeader">
+						<span>Add User</span>
+					</div>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="reset()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<hr>
+			<!--Modal Body-->
+			<div class="modal-body">
+				<form id="adduserform" #adduserform="ngForm" role="form" class="form-horizontal"
+					data-parsley-priority-enabled="false" novalidate="novalidate" data-parsley-validate
+					data-parsley-focus="first">
+					<div class="form-group">
+						<label for="userGroups"> <b> Group Name</b> </label>
+						<select (ngModelChange)="trackChanges($event)" [(ngModel)]="user.nativeUser"
+							name="userNativeGroups" class="form-control fdatable" id="userGroups" required
+							data-parsley-required-message="Error: Role is required">
+							<option [selected]="nativeUser === user.nativeUser"
+								*ngFor="let nativeUser of userNativeGroups" [value]="nativeUser">
+								{{nativeUser}}
+							</option>
+						</select>
+					</div>
+					<h5 class="primary-color">
+						Contact Information
+					</h5>
+
+					<!--First Name-->
+					<div class="form-group">
+						<label for="create-first-name"><b>First Name </b></label>
+						<input type="text" class="form-control" id="create-first-name" [(ngModel)]="user.firstName"
+							[ngModelOptions]="{standalone: true}" required
+							data-parsley-required-message="Error: First Name is required">
+					</div>
+					<!--Last Name-->
+					<div class="form-group">
+						<label for="create-last-name"><b>Last Name</b></label>
+						<input type="text" class="form-control" id="create-last-name" [(ngModel)]="user.lastName"
+							[ngModelOptions]="{standalone: true}" required
+							data-parsley-required-message="Error: Last Name is required">
+					</div>
+					<!--UserName-->
+					<div class="form-group">
+						<label for="create-user-name"><b>User Name</b></label>
+						<input type="text" class="form-control" id="create-user-name" [(ngModel)]="user.email"
+							[ngModelOptions]="{standalone: true}" required
+							data-parsley-error-message="Error: Email is required">
+					</div>
+
+					<!-- Email Address -->
+					<div class="form-group">
+						<label for="create-email-address"><b>Email Address</b></label>
+						<input type="text" class="form-control" id="create-email-address"
+							[(ngModel)]="user.emailAddress" [ngModelOptions]="{standalone: true}" required
+							data-parsley-error-message="Error: Email is required">
+					</div>
+				</form>
+				<div class="modal-footer">
+					<button type="button" id="btn-save" class="btn btn-primary" (click)="createUser(user)">
+						<i class="fa fa-save"> Save </i>
+					</button>
+				</div>
+			</div>
+			<div *ngIf="showErrorFlag" class="alert alert-danger pull-right" role="alert">
+				User already exists.Please try another.
+			</div>
+			<!--Modal Footer-->
+		</div>
+	</div>
+</div>

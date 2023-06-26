@@ -1,0 +1,35 @@
+<div class="modal fade" id="delete-popup" [ngBusy]="busyTableSave">
+  <div class="modal-dialog" role="delete-popup">
+    <div class="modal-content ngDraggable">
+      <div class="modal-header">
+        <button (click)="reset()" type="button" class="close pull-right" data-keyboard="false">
+          <!--  <i class="fa fa-times"></i> -->
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Modal Body-->
+      <div class="modal-body ">
+        <div class="row">
+          <div class="col-2 text-danger text-right">
+            <i class="fa fa-exclamation-triangle fa-3x"> </i>
+          </div>
+          <div class="col-10 text-danger">
+            <span><b>
+                {{message}}?</b></span>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" (click) ="handleCancelAction()" class="btn btnSecondary mr-auto" data-dismiss="modal" aria-label="Close">
+            <i class="fa fa-ban"></i> Cancel
+          </button>
+          <button type="button" class="btn btn-outline-danger" (click)="handleDeleteAction()">
+            <i class="fa fa-trash"></i> {{btnText}}
+          </button>
+        </div>
+      </div>
+      <!--Modal Footer-->
+    </div>
+  </div>
+</div>
+<!--second popup-->

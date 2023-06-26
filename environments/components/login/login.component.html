@@ -1,0 +1,47 @@
+
+
+<app-splash-dialogue (callBack)="proceedtoLandingPage()" 
+(hideModal)= "logout()" >
+</app-splash-dialogue>
+
+    
+<div [title]="'Secure Website Access'" ></div> 
+
+  <div class="container">
+    <div class="row login-center">
+      <div class="col-xl-4 col-md-6 col-xs-10 offset-xl-4 offset-md-4 offset-xs-1 text-center ">
+        <h1 class="py-3">
+          <i class="fa fa-circle text-gray mx-2"></i>
+          {{appTitle}}
+          <i class="fa fa-circle text-warning mx-2"></i>
+		</h1>
+	<div class="card-body">
+		<section class="widget widget-login animated fadeInUp">
+			<header>
+			  <label title="login title" class="h4 no-margin fw-bold">Please wait while you are signed in ... </label>
+			</header>
+			<div class="widget-body">
+			  <form class="login-form mt-lg">
+			  <div *ngIf="showErrorFlag" class="row">
+					<div class="form-group row">
+					  <div class="offset-xs-1">                    
+						<!-- <alert *ngFor="let alert of alerts; let i = index" [type]="alert.type + ' alert-sm'">
+							<div [innerHTML]="alert.msg"></div>
+						</alert> -->
+					  </div>
+					</div>
+				</div>              
+			  </form>
+			</div>
+      </section>
+	</div>
+        <div><span>{{currentYear}} &copy; CTP - Human Capital Application</span></div>
+        <div><span>Build: 1.0.0 Published: December 06, 2019 - 07:30 PM EST</span></div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+ 

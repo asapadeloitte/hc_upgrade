@@ -1,0 +1,34 @@
+<form [formGroup]="changeForm" [ngBusy] ="busyTableSave">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <!-- *ngIf="showSearch" -->
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label id="lblSearch" for="search"><b>Search</b></label>
+                                <input type="text" placeholder="Search" aria-labelledby="lblSearch"
+                                    formControlName="search" class="form-control" (keyup)="onFilterTextBoxChanged()">
+                            </div>
+                        </div>
+                    </div>
+                   <section class="widget h-divider autooverflow" widget>
+                        <div class="row" [ngBusy]="busyTableSave">
+                            <div class="col-12">
+                                <ag-grid-angular style="width: 100%; height: 450px;" class="ag-theme-balham"
+                                    [gridOptions]="gridOptions" (gridReady)="onGridReady($event)"
+                                    [rowData]="rowData" [columnDefs]="colDefs" [suppressMenuHide]="true"
+                                    [allowContextMenuWithControlKey]="true" [suppressRowClickSelection]="true"
+                                     rowSelection='multiple' [excelStyles] = "excelStyles"
+                                    [statusBar]="statusBar" [rowHeight]="rowHeight" [floatingFilter]="false"
+                                    [sideBar]="sideBar" [frameworkComponents]="frameworkComponents">
+                                </ag-grid-angular>
+                                </div>
+                        </div>
+                    </section>
+                   </div>
+            </div>
+        </div>
+    </div>
+    </form>
