@@ -1,0 +1,39 @@
+
+    <div class="modal-content ngDraggable" ngDraggable>
+        <div class="modal-header">
+            <div class="row">
+                <div class="col-12 marginTopHeader">
+                    <span>Select an Announcement</span>
+                </div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      <hr>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <label class="" for="announcements"><b>Announcement</b></label>
+              <ng-select id="announcements" class="form-control" placeholder="Select an option"
+              (change)="onAnnouncementSelection($event)">
+                <option value="" disabled selected hidden>Select an option</option>
+                  <ng-option value =null>New</ng-option>
+                  <ng-option value =nonCompetitiveSelection>Non-Competitive Selection</ng-option>
+                  <ng-option value =sharedCertificate>Shared Certificate</ng-option>
+                  <ng-option *ngFor ="let announcement of announcementList" 
+                  [value]="announcement">{{announcement.announcementDisplayId}}</ng-option>
+                   </ng-select>
+                 
+           
+          </div>
+        </div>
+       <div class="modal-footer" >
+           <button  type="button" [ngBusy]="busyTableSave"
+            class="btn btn-primary saveButtonFont" [disabled] ="disableSubmit" (click)="submitApproval()">
+            <i class="fa fa-send"> Submit</i>
+          </button>
+          </div>
+      </div>
+    </div>
+  
