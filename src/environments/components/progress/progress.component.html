@@ -1,0 +1,5 @@
+<div class="progress-cont">
+    <div *ngIf="(progress < 100)" class="progress" [style.width]="progress + '%'"></div>
+    <div *ngIf="(progress === 100) && (uploadSuccess === true)" class="progress-success" [style.width]="progress + '%'"></div>
+    <div *ngIf="(progress === 100) && (uploadSuccess === false)" class="progress-failed" [style.width]="progress + '%'"></div>
+  </div>

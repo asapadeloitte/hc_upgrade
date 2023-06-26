@@ -1,0 +1,95 @@
+<form [formGroup]="createFTERrportForm">
+    <div class="modal fade" id="add-fte-Report" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content ngDraggable">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-12 marginTopHeader">
+                            <span>Add Entry</span>
+                        </div>
+                    </div>
+                    <button type="button" id="closeIcon" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="reset()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <hr>
+                <!--Modal Body-->
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="selectedPayPeriod"><b>Pay Period</b></label>
+                        <input type="text" class="form-control" id="selectedPayPeriod" disabled="true"
+                            formControlName="selectedPayPeriod" id="selectedPayPeriod"
+                            placeholder="{{selectedPayPeriod}}" value="{{selectedPayPeriod}}">
+                    </div>
+                    <!--added name field-->
+                    <div class="form-group">
+                        <label for="name"><b>Last Name, First Name</b></label>
+                        <input type="text" class="form-control" id="name" formControlName="name"
+                            (change)="onNameEvent($event)" id="name" placeholder="Enter name" value="{{name}}">
+                    </div>
+                    <div class="form-group">
+                        <label id="lblAction" for="action"><b>Action</b></label>
+                        <ng-select id="action" class="dropdownInput" formControlName="action" [searchable]=false
+                            placeholder="Select Action" [items]="actionList" bindLabel="action" autofocus
+                            bindValue="office" (change)="onActionChangeEvent($event)" aria-label="action"
+                            aria-describedby="lblAction">
+                            <ng-template ng-option-tmp let-item="item">
+                                <div title="{{item}}">
+                                    {{item}}</div>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <!--Office-->
+                    <div class="form-group">
+                        <label id="lblOffice" for="office"><b>Office</b></label>
+                        <ng-select id="office" class="dropdownInput" formControlName="office" [searchable]=false
+                            placeholder="Select Office" [items]="officeList" bindLabel="office" autofocus
+                            bindValue="office" (change)="onOfficeChangeEvent($event)" aria-label="office"
+                            aria-describedby="lblOffice">
+                            <ng-template ng-option-tmp let-item="item">
+                                <div title="{{item.office}}">
+                                    {{item.office}}</div>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label id="lblpayPeriod" for="orgLevel"><b>Organizational Level</b></label>
+                                <ng-select id="orgLevel" class="dropdownInput" formControlName="orgLevel"
+                                    [searchable]="true" placeholder="Select Organizational Level"
+                                    [items]="orgLevelsBasedonOffice" bindLabel="orgLevelAlias" bindValue="orgLevel"
+                                    (change)="onOrgLevelSelection($event)" aria-label="orgLevel"
+                                    aria-describedby="lblOrgLevel">
+                                    <option value="null" disabled selected hidden>Select an option</option>
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item.orgLevelAlias}}">
+                                            {{item.orgLevelAlias}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminCode"><b>Admin Code</b></label>
+                        <input type="text" class="form-control" id="adminCode" disabled="true"
+                            formControlName="adminCode" id="adminCode" placeholder="" value="{{adminCode}}">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" id="btn-save" data-dismiss="modal" class="btn btn-primary"
+                            (click)="saveEntry()" [disabled]="!createFTERrportForm.valid">
+                            <i class="fa fa-send"> Save </i>
+
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

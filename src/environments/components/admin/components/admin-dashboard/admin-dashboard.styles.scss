@@ -1,0 +1,48 @@
+
+
+.h-thin-divider{
+    width:100%;
+    border-bottom:1px solid #ddd;
+}
+
+.admindashboardController{
+  width:90%;
+}
+
+.nav-tabs .nav-link {
+  background-color: white;
+  color: #007CBA;
+  border: 2px solid #007CBA;
+  border-radius: 0%;
+  min-width: 278px;
+  text-align: center;
+  &.active {
+    color: white!important;
+    border-bottom: 4px solid #007CBA;
+    border-right: transparent;
+    border-left: transparent;
+    border-top: transparent;
+    background: #007CBA !important;
+    border-radius: 0px;
+    &::after{
+        content: "";
+        position: absolute;
+        border-width: 15px 15px 0;
+        border-style: solid;
+        border-color: #007cba transparent;
+        display: block;
+        width: 0;
+        margin-left: 6rem;
+        margin-top: 6px;
+    }
+  }
+}
+
+.tab-content {
+margin-top: 2rem;
+}
+.tab-close {
+color: gray;
+text-align: right;
+cursor: pointer;
+}

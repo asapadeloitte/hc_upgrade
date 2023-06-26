@@ -1,0 +1,114 @@
+<form [formGroup]="deleteVacancyTopForm">
+
+    <div class="row" [ngBusy]="busyTableSave">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Delete a Vacancy</h1>
+                    <!-- <form [formGroup]="changeForm"> -->
+                    <div class="row">
+                    </div>
+                    <div class="row mt-3" [ngBusy]="busyTableSave">
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label id="lblyear" for="yearType"><b>Year</b></label>
+                                <ng-select id="yearType" class="dropdownInput" formControlName="year"
+                                    [searchable]="false" placeholder="Select Year" [items]="yearsList"
+                                    bindLabel="yearValue" bindValue="yearType" (change)="onYearChangeEvent($event)"
+                                    aria-label="year" aria-describedby="lblyear">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item}}">
+                                            {{item}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label id="lblOffice" for="office"><b>Office</b></label>
+                                <ng-select id="office" class="dropdownInput" formControlName="office" [searchable]=false
+                                    placeholder="Select Office" [items]="officeOrgList" bindLabel="office" autofocus
+                                    bindValue="office" (change)="onOfficeChangeEvent($event)" aria-label="office"
+                                    aria-describedby="lblOffice">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item.office}}">
+                                            {{item.office}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label id="lblOffice" for="version"><b>Organizational Level</b></label>
+                                <ng-select id="version" class="dropdownInput" formControlName="orgLevel"
+                                    [searchable]="true" placeholder="Select Organizational Level" [items]="orgList"
+                                    bindLabel="orgLevelAlias" autofocus bindValue="orgLevel"
+                                    (change)="onOrgChangeEvent($event)" aria-label="orgLevel"
+                                    aria-describedby="lblOrgLevel">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item.orgLevelAlias}}">
+                                            {{item.orgLevelAlias}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label id="lblVacancy" for="vacancy"><b>Vacancy</b></label>
+                                <ng-select id="vacancy" class="dropdownInput" formControlName="vacancy"
+                                    [searchable]="true" placeholder="Select a Vacancy"
+                                    [items]="vacancyList" bindLabel="displaySummary" bindValue="id"
+                                    (change)="onVacancyChangeEvent($event)" aria-label="acquisitionType"
+                                    aria-describedby="lblVacancy">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item.displaySummary}}">
+                                            {{item.displaySummary}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary button-acc"
+                                    [disabled]="!deleteVacancyTopForm.valid" (click)="getVacancyData()" title="Go">
+                                    <span class="label-sr-only d-none">Go</span>
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="deleteVacancyDataForm">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title" style="text-align:center">Vacancy Details</h1>
+
+                    <form [formGroup]="deleteVacancyDataForm">
+                        <div class="row">
+                            <div class="col-6" *ngFor="let fieldMap of formFields">
+                                <app-form-builder [field]="fieldMap" [fomGroup]="deleteVacancyDataForm">
+                                </app-form-builder>
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <button class="btn btn-primary pull-right ml-4" type="button" title="Delete a Vacancy"  (click)="confirmDelete()">
+
+                            <span class="label-sr-only d-none">Delete a Vacancy</span>
+                            <i class="fa fa-send"></i>
+                            Delete
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

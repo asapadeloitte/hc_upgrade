@@ -1,0 +1,101 @@
+<div class="modal-content ngDraggable" style="width: 1200px !important; left: -70%;" [ngBusy]="busyTableSave">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-12 marginTopHeader">
+      </div>
+    </div>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="card">
+      <div class="card-body">
+        <div class="pt-3 pb-3">
+          <div class="row pb-3" style="border-bottom: 1px solid;">
+            <div class="col-12 text-center ctpLineItemColor">
+              <h2>{{ displayName }}</h2>
+
+            </div>
+          </div>
+          <!-- <div *ngIf="findOutEmpVac === 'E0'" > -->
+          <tabset [justified]="true" #staticTabs>
+            <tab *ngFor="let tabz of tabs; let i = index" [heading]="tabz.title" [active]="tabz.active"
+              (deselect)="tabz.active = false" (selectTab)="onSelect($event, tabz.formControls, tabz.key, i)">
+              <!-- <div *ngIf="findOutEmpVac === 'V0' && i =0">
+                          {{ tabz }}
+                        </div> -->
+              <div>
+                <div *ngFor="let field of tabz.formControls | groupBy: 'group'">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="card-title pb-2 sectioncolor">
+                        <b>{{field.key}}</b>
+                      </div>
+                    </div>
+
+                    <div class="col-6" *ngFor="let fields of field.value">
+                      <app-form-builder [field]="fields" [fomGroup]="lintStaffForm.controls[tabz.key]"
+                        (valueChange)=formCntrlValueChange($event) (selectedValueChange)=selectedRAOffice($event)
+                        (jobTitleChange)=onSelectChange($event)>
+                      </app-form-builder>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div>
+                <!-- <button id="save" class="btn btn-primary pull-right ml-4" type="button"
+                  [disabled]="lintStaffForm.controls[tabz.key].invalid" (click)="onSubmit(tabz.key, tabz.title)"
+                  title="Save">
+                  <i class="fa fa-save fa-lg"></i> Save
+                </button> -->
+              </div>
+              <div *ngIf="tabz.title != 'Process a Reassignment'">
+                <button class="btn btn-primary pull-right ml-4" type="button"
+                [disabled]="lintStaffForm.controls[tabz.key].invalid" autofocus
+                    (click)="onSubmit(tabz.key, tabz.title)" title="Save">
+                    <i class="fa fa-save fa-lg"></i> Save
+                </button>
+            </div>
+              <div *ngIf="tabz.title == 'Process a Reassignment'">
+                <button class="btn btn-primary pull-right ml-4" type="button"
+                [disabled]="lintStaffForm.controls[tabz.key].invalid || !isdisableprocesstab" autofocus
+                    (click)="onSubmit(tabz.key, tabz.title)" title="Save">
+                    <i class="fa fa-save fa-lg"></i> Save
+                </button>
+            </div>
+              <div>
+                <button *ngIf="tabz.title == 'Process a Reassignment'" id="btn-cr-clrReasignmnt" type="button"
+                  class="btn btnSecondary pull-right ml-4" (click)="clearReassignment(tabz)"
+                  title="Clear Reassignment Data" [disabled] ="disableReassignClearButton">
+                  <b> Clear Reassignment Data</b>
+                </button>
+              </div>
+              <div>
+                <button id="btn-cr-recruitmentandlogistics" type="button"
+                  *ngIf="showRecruitmentLogisticButton && tabz.title == 'Edit Staff/ Vacancy Information'"
+                  class="btn btnSecondary pull-right ml-4" (click)="addRecruitmentandLogistics()"
+                  title="Add RecruitmentandLogistics">
+                  <i class="fa fa-plus"> <b> Add to Recruitment & Logistic Log</b></i>
+                </button>
+
+              </div>
+              <div>
+                <button
+                    *ngIf="processDepartureScreen && tabz.title == 'Process a Departure'"
+                    id="btn-cr-clrProcessDeparture" type="button"
+                    class="btn btnSecondary pull-right ml-4" [disabled]= "disableDepartureLog"
+                    (click)="clearDepartureData()" title="Clear Departure Data">
+                     <b> Clear Departure Data</b>
+                </button>
+            </div>
+
+            </tab>
+          </tabset>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
