@@ -1,0 +1,35 @@
+<div class="form-group" [ngClass]="{ 'has-danger': errors.length > 0 }">
+  <label [for]="id" *ngIf="label != null"><b>{{ label }}</b>
+    <!--<span *ngIf="!isRequired" class="optional">(optional)</span>-->
+    <span *ngIf="isRequired" style="color:#C70032;">*</span>
+    <i *ngIf="helpText" class="info-circle fa-lg" data-toggle="popover" data-trigger="hover" data-placement="auto"
+      [attr.data-content]="getHelpText(helpText)"></i>
+  </label>
+  <!-- <i *ngIf="iconHide" title="Change History" class="info-circle pull-right" (click)="onClickInfo($event)"></i> -->
+  <div class="input-group" *ngIf="!gridDate">
+    <input [ngStyle]="{
+        'background-color': bgColorFlag ? 'lightblue' : 'transparent'
+      }" class="form-control" [readonly]="disabled" [ngClass]="{ 'is-invalid': errors.length > 0 }" (blur)="onBlur()"
+      type="text" [min]="min" [max]="max" [id]="id" [attr.aria-describedby]="ariaDesribedById" [tabindex]="tabIndex"
+      [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" [ngModel]="date" (ngModelChange)="dateUpdated($event)"
+      [placeholder]="placeholder" />
+    <div class="input-group-append" role="append-calendar">
+      <span class="input-group-text  calender-span" role="text">
+        <a class="fa fa-calendar calender" href="Javascript:void(0);" tabindex="0" [disabled]="disabled"
+          [owlDateTimeTrigger]="dt1">
+          <span class="sr-only sr-focusable" role="label">View {{ label }} Calendar</span>
+        </a>
+      </span>
+    </div>
+    <owl-date-time [disabled]="disabled" [pickerType]="datePickerOptions.pickerType" #dt1></owl-date-time>
+  </div>
+  <div *ngFor="let e of errors" class="text-danger">{{ e }}</div>
+
+  <div class="input-group" *ngIf="gridDate">
+    <input class="datePickerGrid" [readonly]="disabled" (blur)="onBlur()" type="text" [min]="min" [max]="max" [id]="id"
+      [attr.aria-describedby]="ariaDesribedById" [tabindex]="tabIndex" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1"
+      [ngModel]="date" (ngModelChange)="dateUpdated($event)" [placeholder]="placeholder" />
+    <owl-date-time [disabled]="disabled" [pickerType]="datePickerOptions.pickerType" #dt1></owl-date-time>
+  </div>
+  <!--<small [id]="ariaDesribedById" class="form-text text-muted">{{format}}</small>-->
+</div>

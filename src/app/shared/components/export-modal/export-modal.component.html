@@ -1,0 +1,34 @@
+
+    <div class="modal-content ngDraggable" ngDraggable>
+        <div class="modal-header">
+            <div class="row">
+                <div class="col-12 marginTopHeader">
+                    <span>Export</span>
+                </div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      <hr>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <label class="" for="exportOptions"><b>Export Options</b></label>
+            
+            <ng-select id="exportOptions" class="form-control " placeholder="Select an option"
+              (change)="onexportOptionsChangeEvent($event)">
+              <option value="" disabled selected hidden>Select an option</option>
+              <!-- <option [value]="null">Select an option</option> -->
+              <ng-option value="excel">Excel</ng-option>
+              <ng-option value="csv">CSV</ng-option>
+              <ng-option value="xml">XML</ng-option>
+            </ng-select>
+          </div>
+        </div>
+       <div class="modal-footer">
+            <button  type="button" class="btn btn-primary" [disabled]="disableExportButton"
+            (click)="onExport()"><i class="fa fa-upload"></i> Export</button>
+          </div>
+      </div>
+    </div>

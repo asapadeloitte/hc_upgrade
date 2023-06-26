@@ -1,0 +1,45 @@
+a {
+  outline: none !important;
+}
+.dropdown-inline {
+  display: inline-block;
+}
+.dropdown {
+  width: 100%;
+}
+button {
+  width: 100%;
+  text-align: left;
+  .caret {
+    top: 40%;
+    right: 10px;
+    position: absolute;
+  }
+}
+.dropdown-menu {
+  border-radius: 0px !important;
+  width: 100%;
+}
+.btn {
+  margin: 0px !important;
+}
+.form-control[type="button"] {
+  border-radius: 0px !important;
+  border-radius: 0.125rem !important;
+  font-size: 0.875rem !important;
+}
+.caret {
+  color: #4A4A4A;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.clear-selection {
+  margin-right: 0.3125rem;
+}

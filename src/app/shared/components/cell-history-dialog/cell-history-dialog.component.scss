@@ -1,0 +1,20 @@
+.colorchange{
+    color: #007CBA;
+}
+.cursor-all-scroll {
+    cursor: all-scroll;
+  }
+
+
+.ngDraggable {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
