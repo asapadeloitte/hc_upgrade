@@ -1,0 +1,220 @@
+<form [formGroup]="oneStaffSearchForm" [ngBusy]="busyTableSave" *ngIf="oneStaffSearchForm">
+
+    <div class="row" [ngBusy]="busyTableSave">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body" *ngIf="oneStaffSearchForm">
+                    <h1 class="card-title">Edit an Existing Staff Member/Vacancy & Process Actions - One Staff</h1>
+                    <div class="row">
+                    </div>
+                    <div class="row mt-3" [ngBusy]="busyTableSave">
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label id="lblOffice" for="office"><b>Office</b></label>
+                                <ng-select id="office" class="dropdownInput" formControlName="office" [searchable]=false
+                                    placeholder="Select Office" [items]="officeOrgList" bindLabel="office" autofocus
+                                    bindValue="office" (change)="onOfficeChangeEvent($event)" aria-label="office"
+                                    aria-describedby="lblOffice">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item.office}}">
+                                            {{item.office}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label id="lblOrgLevel" for="orgLevel"><b>Organizational Level  </b>(Optional)</label>
+                                    <ng-select id="orgLevel" class="dropdownInput" formControlName="orgLevel"
+                                        [searchable]=true placeholder="Select Organizational Level" [items]="orgList"
+                                        bindLabel="orgLevelAlias" autofocus bindValue="orgLevel"
+                                        (change)="onOrgChangeEvent($event)" aria-label="orgLevel"
+                                        aria-describedby="lblOrgLevel">
+                                        <ng-template ng-option-tmp let-item="item">
+                                            <div title="{{item.orgLevelAlias}}">
+                                                {{item.orgLevelAlias}}</div>
+                                        </ng-template>
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label id="lblyear" for="yearType"><b>Year</b></label>
+                                <ng-select id="yearType" class="dropdownInput" formControlName="year"
+                                    [searchable]="false" placeholder="Select Year" [items]="yearsList"
+                                    bindLabel="yearValue" bindValue="yearType" (change)="onYearChangeEvent($event)"
+                                    aria-label="year" aria-describedby="lblyear">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <div title="{{item}}">
+                                            {{item}}</div>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label id="lblPositnType" for="positnType"><b>Position Type</b></label>
+                                    <ng-select id="positnType" class="dropdownInput" formControlName="positnType"
+                                        [searchable]=true placeholder="Select Position Type" [items]="positionTypeList"
+                                        bindLabel="name" autofocus bindValue="name"
+                                        (change)="onPositnTypeChangeEvent($event)" aria-label="positnType"
+                                        aria-describedby="lblPositnType">
+                                        <ng-template ng-option-tmp let-item="item">
+                                            <div title="{{item}}">
+                                                {{item}}</div>
+                                        </ng-template>
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div *ngIf="positionType === 'Employee'; else otherContent">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label id="lblEmpVac" for="empVac"><b>Employee/Vacancy</b></label>
+                                        <ng-select id="empVac" class="dropdownInput" formControlName="empVac"
+                                            [searchable]=true placeholder="Select Employee or Vacancy" [items]="empVacList"
+                                            bindLabel="fullName" autofocus bindValue="id"
+                                            (change)="onEmpVacChangeEvent($event)" aria-label="empVac"
+                                            aria-describedby="lblEmpVac">
+                                            <ng-template ng-option-tmp let-item="item">
+                                                <div title="{{item.fullName}}">
+                                                    {{item.fullName}}</div>
+                                            </ng-template>
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </div>
+                            <ng-template #otherContent>
+                                <div>
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label id="lblEmpVac" for="empVac"><b>Employee/Vacancy</b></label>
+                                            <ng-select id="empVac" class="dropdownInput" formControlName="empVac"
+                                                [searchable]=true placeholder="Select Employee or Vacancy" [items]="empVacList"
+                                                bindLabel="displaySummary" autofocus bindValue="id"
+                                                (change)="onEmpVacChangeEvent($event)" aria-label="empVac"
+                                                aria-describedby="lblEmpVac">
+                                                <ng-template ng-option-tmp let-item="item">
+                                                    <div title="{{item.displaySummary}}">
+                                                        {{item.displaySummary}}</div>
+                                                </ng-template>
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+
+                        <div class="col-1 align-self-center">
+                            <div class="form-group">
+                                <button type="submit" id="goButton" class="btn btn-primary button-acc"
+                                    (click)="onGoClick()" [disabled]="!oneStaffSearchForm.valid" title="Go">
+                                    <span class="label-sr-only d-none">Go</span>
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="oneStaffForm" class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="pt-3 pb-3">
+                        <div class="row pb-3" style="border-bottom: 1px solid;">
+                            <div class="col-4">
+                            </div>
+                            <div class="col-4 text-center ctpLineItemColor">
+                                <h2>{{empVac}}</h2>
+                            </div>
+                            <div class="col-4">
+                                <span class="text-danger pull-right" *ngIf="!formValid">
+                                    <strong>Please populate mandatory fields and/or fix errors.</strong>
+                                </span>
+                            </div>
+
+                        </div>
+                        <form [formGroup]="oneStaffForm">
+                            <tabset [justified]="true" #staticTabs>
+                                <tab *ngFor="let tabz of tabs; let i = index" [heading]="tabz.title"
+                                    [active]="tabz.active" (deselect)="tabz.active = false"
+                                    (selectTab)="onTabSelect($event, tabz.formControls, tabz.key, i)">
+                                    <div>
+                                        <div *ngFor="let field of tabz.formControls | groupBy: 'group'">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card-title pb-2 sectioncolor">
+                                                        <b>{{field.key}}</b>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6" *ngFor="let fields of field.value ">
+                                                    <app-form-builder [field]="fields"
+                                                        [fomGroup]="oneStaffForm.controls[tabz.key]"
+                                                        (valueChange)=formCntrlValueChange($event)
+                                                        (selectedValueChange)=selectedRAOffice($event)
+                                                        (jobTitleChange)=onSelectChange($event)>
+                                                    </app-form-builder>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="tabz.title != 'Process a Reassignment'">
+                                        <button class="btn btn-primary pull-right ml-4" type="button"
+                                            [disabled]="oneStaffForm.controls[tabz.key].invalid" autofocus
+                                            (click)="onSubmit(tabz.key, tabz.title)" title="Save">
+                                            <i class="fa fa-save fa-lg"></i> Save
+                                        </button>
+                                    </div>
+                                   
+                                    <div *ngIf="tabz.title == 'Process a Reassignment'"> 
+                                        <button class="btn btn-primary pull-right ml-4" type="button"
+                                            [disabled]="oneStaffForm.controls[tabz.key].invalid || (oneStaffForm.controls[tabz.key].get('action').value !== '4' && oneStaffForm.controls[tabz.key].get('action').value !== '7')"
+                                            autofocus (click)="onSubmit(tabz.key, tabz.title)" title="Save">
+                                            <i class="fa fa-save fa-lg"></i> Save
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button *ngIf="tabz.title == 'Process a Reassignment'" id="btn-cr-clrReasignmnt"
+                                            type="button" class="btn btnSecondary pull-right ml-4"
+                                            [disabled]="disableReassignClearButton" (click)="clearReassignment(tabz)"
+                                            title="Clear Reassignment Data">
+                                            <b> Clear Reassignment Data</b>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button
+                                            *ngIf="showRecruitmentLogisticButton && tabz.title == 'Edit Staff/ Vacancy Information'"
+                                            id="btn-cr-recruitmentandlogistics" type="button"
+                                            class="btn btnSecondary pull-right ml-4"
+                                            (click)="addRecruitmentandLogistics()" title="Add RecruitmentandLogistics">
+                                            <i class="fa fa-plus"> <b> Add to Recruitment & Logistic Log</b></i>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button *ngIf="processDepartureScreen && tabz.title == 'Process a Departure'"
+                                            id="btn-cr-clrProcessDeparture" type="button"
+                                            class="btn btnSecondary pull-right ml-4" [disabled]="disableDepartureLog"
+                                            (click)="clearDepartureData()" title="Clear Departure Data">
+                                            <b> Clear Departure Data</b>
+                                        </button>
+                                    </div>
+                                </tab>
+                            </tabset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
