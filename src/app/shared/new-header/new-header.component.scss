@@ -1,0 +1,292 @@
+@import "../../../../cbas-base-colors.scss";
+
+
+
+
+
+.fa {
+  color: white;
+}
+
+a {
+  color: $sky-blue;
+}
+
+.sub-header {
+  background-color: $very-dark-blue;
+  color: white;
+  padding-left: 30px;
+  font-size: 11pt;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.fa.pull-right{
+  margin-top: 0.9em !important;
+}
+
+.border-bottom {
+  border-bottom: 0.1em solid $sky-blue !important;
+}
+
+#menu li:last-child {
+  border-bottom: 0.2em solid $sky-blue !important;
+}
+
+#menu ul,
+#menu li {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none;
+}
+
+#menu ul {
+  height: 35px;
+}
+
+#menu li {
+  float: left;
+  display: inline;
+  position: relative;
+}
+
+#menu li:first-child {
+  border-left: none;
+}
+
+#menu a {
+  display: block;
+  line-height: 35px;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+#menu li:hover > a,
+#menu li a:hover {
+  background: white;
+  color: $sky-blue !important;
+}
+
+#menu input {
+  display: none;
+  margin: 0 0;
+  padding: 0 0;
+  width: 80px;
+  height: 35px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#menu label {
+  font: bold 30px Arial;
+  display: none;
+  width: 35px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+}
+
+#staffingPlan {
+  height: auto;
+  width: 400px;
+  background: #fff;
+  position: absolute;
+  z-index: 99;
+  display: none;
+  border: 0;
+  color: $sky-blue;
+}
+
+#hiringPlan {
+  height: auto;
+  width: 280px;
+  background: #fff;
+  position: absolute;
+  z-index: 99;
+  display: none;
+  border: 0;
+  color: $sky-blue;
+}
+
+#hcReports {
+  height: auto;
+  width: 229px;
+  background: #fff;
+  position: absolute;
+  z-index: 99;
+  display: none;
+  border: 0;
+  color: $sky-blue;
+}
+
+
+#menu label span {
+  font-size: 12px;
+  position: absolute;
+  left: 35px;
+}
+
+#menu ul.menus li {
+  display: block;
+  width: 100%;
+  font: 12px Arial;
+  background: #fff;
+  text-transform: none;
+}
+
+#menu li:hover ul.menus {
+  display: block;
+  background: #fff;
+}
+
+#menu a.home {
+  background: #c00;
+}
+
+a.list-item-padding {
+  padding: 0 27px 0 14px !important;
+}
+
+// .head-link > a.prett {
+//   padding: 8px 70px 7px 20px !important;
+// }
+
+.head-link > a.prett {
+  padding: 8px 27px 7px 14px !important;
+}
+
+.head-link > a.prett::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-width: 6px 5px;
+  border-style: solid;
+  border-color: #eee transparent transparent transparent;
+  position: absolute;
+  top: 21px !important;
+  right: 9px;
+}
+
+#menu a.prett::after {
+  width: 0;
+  height: 0;
+  border-width: 6px 5px;
+  border-style: solid;
+  border-color: #eee transparent transparent transparent;
+  position: absolute;
+  top: 15px;
+  right: 9px;
+}
+
+#menu a.prett:hover::after {
+  width: 0;
+  height: 0;
+  border-width: 6px 5px;
+  border-style: solid;
+  border-color: $sky-blue transparent transparent transparent;
+  position: absolute;
+  top: 15px;
+  right: 9px;
+}
+
+#menu ul.menus a:hover {
+  background: #d5d5d5;
+  color: black !important;
+}
+
+#menu ul.menus .submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  background: white;
+  color: $sky-blue;
+  top: 0;
+  width: 145%;
+}
+
+#menu ul.menus .submenu .sub-submenu {
+  display: none;
+  position: absolute;
+  left: 50%;
+  background: white;
+  color: $sky-blue;
+  top: 0;
+  width: 50%;
+}
+
+#menu ul.menus .submenu .sub-submenu .s3menu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  background: white;
+  color: $sky-blue;
+  top: 0;
+  width: 100%;
+}
+
+#menu ul.menus .submenu li {
+  background: white;
+  color: $sky-blue;
+}
+
+#menu ul.menus .submenu .sub-submenu li {
+  background: white;
+  color: $sky-blue;
+}
+
+#menu ul.menus .submenu .sub-submenu .s3menu li {
+  background: white;
+  color: $sky-blue;
+}
+
+#menu ul.menus .has-submenu:hover .submenu {
+  display: block;
+}
+
+#menu ul.menus .has-submenu:hover .submenu .has-sub-submenu:hover .sub-submenu {
+  display: block;
+}
+
+#menu ul.menus .has-submenu:hover .submenu .has-sub-submenu:hover .sub-submenu .has-s3menu:hover .s3menu {
+  display: block;
+}
+
+.head-link > a.logout{
+  padding: 8px 14px 7px 14px !important;
+  color: white;
+  &:hover{
+    .fa-sign-out {
+        color: $sky-blue;
+    }
+  }
+}
+
+.user-icon {
+  background: url(../../../../assets/images/dnd/user-icon.svg);
+  background-repeat: no-repeat;
+  padding: 0px 23px;
+}
+
+
+// if link is blank has-menu
+ul {
+  li {
+    &.has-submenu {
+        display: block;
+        width: 100%;
+        font: 12px Arial;
+        text-transform: none;
+        line-height: 36px !important;
+
+      &:hover{
+        background: #d5d5d5;
+        color: black !important;
+      }
+    }
+  }
+}
+
+#menu>li:last-child .menus li.has-submenu>ul{
+  left: auto !important;
+  right: 100%;
+}

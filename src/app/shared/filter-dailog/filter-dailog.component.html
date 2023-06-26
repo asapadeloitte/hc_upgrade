@@ -1,0 +1,61 @@
+<div class="modal-content ngDraggable">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-12 marginTopHeader">
+                <span *ngIf="!deleteState">{{title}}</span>
+            </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <hr *ngIf="!deleteState">
+    <div class="modal-body">
+        <div class="form-group" *ngIf="!deleteState && !stateSave">
+            <label for="filterName">View Name</label>
+            <input id="filterName" type="text" class="form-control" [(ngModel)]="gridView" (ngModelChange)=onfilternameChange()>
+        </div>
+        <div class="text-danger">
+            {{duplicateView}}
+        </div>
+        <div *ngIf="deleteState">
+            <div class="row">
+                <div class="col-2 text-danger text-right">
+                    <span>
+                        <i class="fa fa-warning fa-3x"></i>
+                    </span>
+                </div>
+                <div class="col-10 text-danger">
+                    <h5>Are you sure you want to delete this view? <br>
+                        The action cannot be undone.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer" *ngIf="!stateSave">
+                <a href="javascript:void(0)" title="Delete" class="btn deleteButton mr-auto modalFooterFontSize" *ngIf="id !== null && !deleteState" (click)="onDelete()">
+                    <i class="fa fa-trash"></i> Delete
+                </a>
+                <a href="javascript:void(0)" title="Cancel" class="btn btnSecondary mr-auto modalFooterFontSize" *ngIf="deleteState" (click)="close()">
+                    <i class="fa fa-ban"></i> Cancel
+                </a> 
+                <a href="javascript:void(0)" title="Cancel" class="btn btnSecondary mr-auto modalFooterFontSize" *ngIf="!deleteState && id === null" (click)="close()">
+                    <i class="fa fa-ban"></i> Cancel
+                </a>
+                <!-- <a href="javascript:void(0)" title="Edit Layout" class="btn editButton modalFooterFontSize" *ngIf="id !== null && !deleteState" (click)="close()">
+                    <i class="fa fa-edit"></i>  Edit Layout
+                </a> -->
+                <a href="javascript:void(0)" title="Cancel" class="btn btnSecondary modalFooterFontSize" *ngIf="id !== null && !deleteState" (click)="close()">
+                    <i class="fa fa-ban"></i> Cancel
+                </a>
+                <a href="javascript:void(0)" class="btn btn-primary modalFooterFontSize" *ngIf="!deleteState" title="Save" (click)="saveState()">
+                    <i class="fa fa-save"></i> Save
+                </a>
+                <a href="javascript:void(0)" class="btn deleteButtons modalFooterFontSize" *ngIf="deleteState" title="Delete" (click)="onConfirmDelete()">
+                    <i class="fa fa-trash"></i> Delete
+                </a>
+        </div>
+    </div>
+    <div *ngIf="stateSave" class="alert alert-success">
+            <span>Grid state saved successfully</span>
+        </div>
+</div>

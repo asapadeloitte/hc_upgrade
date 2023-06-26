@@ -1,0 +1,37 @@
+@import '../../../../cbas-base-colors.scss';
+
+.copy-right {
+    color: white;
+    background-color: $sky-blue !important;
+    padding-left: 50px;
+
+}
+
+.footer-links {
+    background-color: $light-grey;
+
+}
+.pointer {
+    cursor: pointer;
+  }
+
+.footer-header {
+    color: #2E2925;
+    font-size: 14pt;
+    // border-bottom: #4A4A4A;
+    // border-bottom-style: solid;
+    text-align: center;
+}
+
+a {
+    color: #4A4A4A;
+}
+
+input {
+    outline: 0;
+    border-width: 0 0 2px;
+    background-color: $light-grey;
+  }
+  input:focus {
+    border-color: green
+  }

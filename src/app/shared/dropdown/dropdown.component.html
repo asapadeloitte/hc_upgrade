@@ -1,0 +1,84 @@
+<div class="form-group" [ngClass]="{'has-danger':errors.length > 0}">
+  <label [for]="id" *ngIf="label != null"><b>{{label}}</b>
+    <span *ngIf="!isRequired" class="optional">(optional)</span>
+   </label>
+  <div class="input-group">
+    <div class="dropdown" [ngClass]="settings.containerClasses" [class.open]="isVisible">
+      <!-- <button type="button" class="form-control" [title]="label" (click)="clearSelection()" [disabled]="disabled" [ngClass]="{'is-invalid':errors.length > 0}"
+         >{{ title }}
+        <span class="glyphicon glyphicon-remove pull-right"></span>
+      </button> -->
+      <button type="button" class="form-control" (click)="toggleDropdown()" [disabled]="disabled" [ngClass]="{'is-invalid':errors.length > 0}"
+        (blur)="onBlur()" [id]="id">{{ title }}
+        <span class="caret pull-right"></span>
+      </button>
+      <!-- TODO: Remove the inline style from this element. -->
+      <ul #scroller *ngIf="isVisible" class="dropdown-menu" (scroll)="settings.isLazyLoad ? checkScrollPosition($event) : null"
+        (wheel)="settings.stopScrollPropagation ? checkScrollPropagation($event, scroller) : null" [class.pull-right]="settings.pullRight"
+        [class.dropdown-menu-right]="settings.pullRight" [style.max-height]="settings.maxHeight" style="display: block; height: auto; overflow-y: auto;">
+        <li class=" search" *ngIf="settings.enableSearch">
+          <div class="input-group input-group-sm">
+            <span class="input-group-addon" id="sizing-addon3">
+              <i class="fa fa-search"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="{{ texts.searchPlaceholder }}" aria-describedby="sizing-addon3" [formControl]="filterControl"
+              autofocus>
+            <span class="from-group" *ngIf="filterControl.value.length > 0">
+              <button class="form-control" type="button" (click)="clearSearch($event)">
+                <i class="fa fa-edit"></i>
+              </button>
+            </span>
+          </div>
+        </li>
+        <li class="dropdown-divider divider" *ngIf="settings.enableSearch"></li>
+        <!-- <li class=" pl-3 check-control check-control-check" *ngIf="!disabledSelection">
+          <input id="chkYear" type="checkbox" [(ngModel)]="checkedYear" (click)="checkedSelect()" /> 
+          <span *ngIf="!this.checkedYear">  {{texts.checkAll}}</span>
+          <span *ngIf="this.checkedYear">  {{texts.uncheckAll}}</span> -->
+          <!-- <span *ngIf="settings.showUncheckAll" ><input type="checkbox" (click)="uncheckAll()"/> {{texts.uncheckAll}}</span> -->
+          <!-- <a href="javascript:;" role="menuitem" tabindex="-1">
+            <span [ngClass]="{'glyphicon glyphicon-ok': settings.checkedStyle !== 'fontawesome','fa fa-check': settings.checkedStyle === 'fontawesome'}"></span>
+            {{ texts.checkAll }}
+          </a> -->
+        <!-- </li> -->
+        <!-- <li class=" pl-3 check-control check-control-uncheck" *ngIf="settings.showUncheckAll && !disabledSelection" (click)="uncheckAll()">
+            <input type="checkbox" /> {{texts.uncheckAll}}
+          <a href="javascript:;" role="menuitem" tabindex="-1">
+            <span [ngClass]="{'glyphicon glyphicon-remove': settings.checkedStyle !== 'fontawesome','fa fa-times': settings.checkedStyle === 'fontawesome'}"></span>
+            {{ texts.uncheckAll }}
+          </a> -->
+        <!-- </li> -->
+        <li *ngIf="!renderItems" class="dropdown-item empty">{{ texts.searchNoRenderText }}</li>
+        <li *ngIf="renderItems && !renderFilteredOptions.length" class="dropdown-item empty">{{ texts.searchEmptyResult }}</li>
+        <li class="pl-3" *ngFor="let option of renderFilteredOptions" (click)="setSelected($event, option)" [ngStyle]="getItemStyle(option)"
+          [ngClass]="option.classes" [class.dropdown-header]="option.isLabel">
+          <span *ngIf="!option.isLabel; else label" href="javascript:;" role="menuitem" tabindex="-1" [style.padding-left]="this.parents.length>0&&this.parents.indexOf(option.id)<0&&'30px'"
+            [ngStyle]="getItemStyleSelectionDisabled()">
+            <ng-container [ngSwitch]="settings.checkedStyle" *ngIf="settings.selectionLimit != 1">
+              <input *ngSwitchCase="'checkboxes'" type="checkbox" [checked]="isSelected(option)" (click)="preventCheckboxCheck($event, option)"
+                [disabled]="isCheckboxDisabled()" [ngStyle]="getItemStyleSelectionDisabled()" />
+              <!-- TODO: Remove the inline style from this element and the element below it. -->
+              <span *ngSwitchCase="'glyphicon'" style="width: 16px;" class="glyphicon" [class.glyphicon-ok]="isSelected(option)"></span>
+              <span *ngSwitchCase="'fontawesome'" style="width: 16px;display: inline-block;">
+                <i *ngIf="isSelected(option)" class="fa fa-check" aria-hidden="true"></i>
+              </span>
+            </ng-container>
+            <span [ngClass]="settings.itemClasses" tabindex="0" [style.font-weight]="this.parents.indexOf(option.id)>=0? '':''">
+              {{ option.name }}
+            </span>
+            <span  class="fa fa-edit pull-right clear-selection" *ngIf="clearSelectionButtonVisible(option)" tabindex="0" (click)="clearSelection($event)"></span>
+            <!-- <span *ngSwitchCase="'glyphicon'" class="glyphicon glyphicon-remove pull-right" *ngIf="clearSelectionButtonVisible(option)" (click)="clearSelection($event)"></span> -->
+
+          </span>
+          <ng-template #label>{{ option.name }}</ng-template>
+        </li>
+        <li class=" pl-3 check-control check-control-check" *ngIf="!disabledSelection">
+            <input id="chkYear" type="checkbox" [(ngModel)]="checkedYear" (click)="checkedSelect()" /> 
+            <span *ngIf="!this.checkedYear">  {{texts.checkAll}}</span>
+            <span *ngIf="this.checkedYear">  {{texts.uncheckAll}}</span>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngFor="let e of errors" class="invalid-feedback">{{e}}</div>
+</div>
