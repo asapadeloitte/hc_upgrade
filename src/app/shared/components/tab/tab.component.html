@@ -1,0 +1,7 @@
+<tabset>
+  <tab *ngFor="let tabz of tabs" [heading]="tabz.title" [active]="tabz.active"
+    (selectTab)="tabz.active = true; onTabSelect($event)"
+    [disabled]="tabz.disabled" [removable]="tabz.removable" (removed)="removeTabHandler(tabz)"
+    [customClass]="tabz.customClass" id="tab1" aria-label="tab">
+  </tab>
+</tabset>
