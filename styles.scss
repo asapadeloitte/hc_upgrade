@@ -1,0 +1,114 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap"; // core bootstrap css
+@import "../node_modules/ng-busy/src/style/busy.css"; // for loader screen
+@import "./cbas-base-colors.scss"; // cbas colours
+@import "./ag-grid-cbas-theme.scss";
+@import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-balham/sass/ag-theme-balham.scss";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "../node_modules/ng-pick-datetime/assets/style/picker.min.css"; // theme for the data picker popup
+@import "../node_modules/angular2-toaster/toaster"; // for toastr messaging
+
+@import "../src/assets/scss/components.scss";
+
+// @include ag.grid-styles((
+//   theme: custom-angular,
+//   extend-theme: alpine,
+
+//   odd-row-background-color: #f2f8f2,
+//   row-border-color: transparent,
+//   row-hover-color: null,
+//   checkbox-checked-color: #2661ad,
+//   range-selection-border-color: #ff00b1,
+//   range-selection-background-color: #03305633,
+// ));
+@font-face {
+  font-family: "d-din-bold";
+  src: url("./assets/fonts/D-DIN-Bold.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2 {
+  font-weight: 400 !important;
+}
+
+body {
+  background-color: lightgrey !important;
+  font-family: "open", sans-serif !important;
+  font-size: 0.9em !important;
+}
+
+.card .card-body h1.card-title {
+  color: $sky-blue;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  border-bottom: solid 1px #4a4a4a;
+  margin-bottom: 1.3rem;
+  padding-bottom: 1rem;
+}
+
+.card-title-sub-heading {
+  font-weight: 600 !important;
+  font-size: 1.6rem;
+}
+
+h3.subheader {
+  background-color: $sky-blue;
+  color: white;
+}
+
+.btn-primary {
+  background-color: $sky-blue !important;
+}
+
+.card {
+  margin-bottom: 30px;
+}
+
+.form-control {
+  border: 0.8px solid $dark-grey !important;
+}
+
+::ng-deep .ag-theme-balham .ag-header-cell {
+  background-color: #007cba;
+  color: white;
+}
+
+div.ag-popup-editor.ag-ltr.ag-popup-child{
+  height: auto !important;
+  overflow: hidden !important;
+}
+.select-drpdwn-panel{
+  ng-dropdown-panel.ng-dropdown-panel{ 
+    position: relative !important;
+  }
+}
+
+.select-dropdown-wrapper{
+  ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+    white-space: normal !important;
+  }
+
+}
+// ng-dropdown-panel.ng-dropdown-panel{
+//   position: relative;
+// }
+// .ag-theme-balham .ag-popup-editor{
+//   height: 10rem !important;
+//   overflow: auto;
+//   width: 13.8rem !important;
+// }
+
+.ag-theme-balham .ag-ltr .ag-cell {
+  border-right: 1px solid gray !important;
+}
+// .ag-theme-balham .ag-row {
+//   border: 1px  grey !important;
+// }
+ .numberfield-font{
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit;
+  }
