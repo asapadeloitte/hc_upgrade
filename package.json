@@ -48,7 +48,7 @@
     "jquery": "^3.6.0",
     "jquery-ui": "^1.13.1",
     "mydatepicker": "^2.6.6",
-    "ng-busy": "7.0.0",
+    "ng-busy": "^8.0.0",
     "ng-pick-datetime": "^6.0.10",
     "ng2-charts": "^2.3.0",
     "ng2-currency-mask": "^9.0.2",
