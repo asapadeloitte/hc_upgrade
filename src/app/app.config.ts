@@ -5,13 +5,8 @@ import { map } from 'rxjs/operators';
 
 import { ReflectiveInjector, Injectable, Injector } from '@angular/core';
 import { IAuthSettings } from './shared/models/auth-settings.model';
-import {
-  HttpClient,
-  HttpBackend,
-  HttpXhrBackend,
-  XhrFactory,
-  HttpHandler,
-} from '@angular/common/http';
+import { XhrFactory } from '@angular/common';
+import { HttpClient, HttpBackend, HttpXhrBackend, HttpHandler } from '@angular/common/http';
 import { AppConfigService } from './app-config.service';
 
 // @Injectable()
